@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { Search, SlidersHorizontal } from 'lucide-react';
 import { destinations as allDestinations } from '../../data/destinations';
-import DestinationCard from '../Destination/DestinationCard';
-import DestinationDetail from '../Destination/DestinationDetail';
-import type { Destination } from '../../types';
+import Destination from '../Destination/Destination';
 
 type Props = {
   wishlist: number[];
@@ -13,11 +11,10 @@ type Props = {
 
 const categories = ['Tous', 'Plage', 'Culture', 'Aventure'];
 
-function Destinations({ wishlist, onToggleFav, setPage }: Props) {
+function Destinations({ onToggleFav }: Props) {
   const [search, setSearch] = useState('');
   const [categorie, setCategorie] = useState('Tous');
   const [sortBy, setSortBy] = useState<'prix' | 'rating'>('rating');
-  const [selected, setSelected] = useState<Destination | null>(null);
 
   const filtered = allDestinations
     .filter((d) =>
@@ -76,16 +73,19 @@ function Destinations({ wishlist, onToggleFav, setPage }: Props) {
         {filtered.length} destination{filtered.length > 1 ? 's' : ''} trouvée{filtered.length > 1 ? 's' : ''}
       </p>
 
-      {/* Grid */}
+      {/* Grid TD4 - Cartes interactives avec Destination.tsx */}
       {filtered.length > 0 ? (
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {filtered.map((dest) => (
-            <DestinationCard
+            <Destination
               key={dest.id}
-              destination={dest}
-              isFav={wishlist.includes(dest.id)}
+              id={dest.id}
+              image={dest.image}
+              nom={dest.nom}
+              pays={dest.pays}
+              description={dest.description}
+              prix={dest.prix}
               onToggleFav={onToggleFav}
-              onSelect={setSelected}
             />
           ))}
         </div>
@@ -95,20 +95,8 @@ function Destinations({ wishlist, onToggleFav, setPage }: Props) {
           <p className="text-sm">Aucune destination trouvée</p>
         </div>
       )}
-
-      {/* Detail modal */}
-      {selected && (
-        <DestinationDetail
-          destination={selected}
-          isFav={wishlist.includes(selected.id)}
-          onToggleFav={onToggleFav}
-          onClose={() => setSelected(null)}
-          onContact={() => { setSelected(null); setPage('reservation'); }}
-        />
-      )}
     </section>
   );
 }
 
 export default Destinations;
-

@@ -1,0 +1,174 @@
+/* ==========================================================================
+   Destination.module.css - Styles pour TD 4 (Activité 3, Défi & Bonus)
+   ========================================================================== */
+
+/* Carte de la destination */
+.card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Image */
+.image {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Contenu */
+.content {
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #173d55;
+  margin: 0 0 4px 0;
+}
+
+.pays {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0 0 8px 0;
+}
+
+.prix {
+  font-size: 17px;
+  font-weight: 800;
+  color: #f49f20;
+  margin: 0 0 12px 0;
+}
+
+/* Activité 1 : Description affichée conditionnellement */
+.description {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #475569;
+  background-color: #f8fafc;
+  padding: 10px 12px;
+  border-left: 3px solid #173d55;
+  border-radius: 6px;
+  margin: 6px 0 12px 0;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+/* Bonus TD 4 : Message d'avertissement destination déjà en favoris */
+.messageBonus {
+  font-size: 12px;
+  font-weight: 600;
+  color: #dc2626;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  padding: 8px 10px;
+  border-radius: 6px;
+  text-align: center;
+  margin-bottom: 10px;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+/* Activité 3 : Espacement entre les boutons et les informations */
+.buttonGroup {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #f1f5f9;
+}
+
+/* Activité 3 : Boutons de base */
+.btnDetails,
+.btnFavori,
+.btnReset {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Bouton Voir les détails */
+.btnDetails {
+  background-color: #173d55;
+  color: #ffffff;
+}
+
+/* Activité 3 : Effet au survol avec :hover */
+.btnDetails:hover {
+  background-color: #0fb9b1;
+  transform: translateY(-1px);
+}
+
+/* Activité 2 & 3 : Bouton Favoris (inactif) */
+.btnFavori {
+  background-color: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+}
+
+.btnFavori:hover {
+  background-color: #e2e8f0;
+  color: #0f172a;
+  transform: translateY(-1px);
+}
+
+/* Activité 3 : Couleur différente pour le bouton favoris actif */
+.btnFavoriActif {
+  background-color: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #f87171;
+}
+
+.btnFavoriActif:hover {
+  background-color: #fecaca;
+  color: #b91c1c;
+  border-color: #ef4444;
+}
+
+/* Défi : Bouton Réinitialiser */
+.btnReset {
+  background-color: #ffffff;
+  color: #64748b;
+  border: 1px dashed #cbd5e1;
+  font-size: 12px;
+  padding: 7px 12px;
+}
+
+.btnReset:hover {
+  background-color: #f8fafc;
+  color: #334155;
+  border-color: #94a3b8;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
