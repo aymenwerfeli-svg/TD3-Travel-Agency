@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f7f9;
+  color: #333;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.destinations {
+  padding: 50px 8%;
+  flex: 1;
+}
+
+.section-title {
+  text-align: center;
+  color: #173d55;
+  font-size: 30px;
+  margin-bottom: 35px;
+}
+
+.destination-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.footer {
+  background-color: #173d55;
+  color: white;
+  text-align: center;
+  padding: 22px;
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .destination-list {
+    grid-template-columns: 1fr;
+  }
+}
