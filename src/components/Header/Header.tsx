@@ -18,6 +18,7 @@ function Header({ page, setPage, darkMode, toggleDark, wishlistCount }: Props) {
     { id: 'favoris', label: 'Favoris' },
     { id: 'reservation', label: 'Réservation' },
     { id: 'contact', label: 'Contact' },
+    { id: 'login', label: 'Connexion' },
   ];
 
   return (
@@ -30,7 +31,7 @@ function Header({ page, setPage, darkMode, toggleDark, wishlistCount }: Props) {
         </button>
 
         {/* Desktop nav */}
-        <nav className="hidden sm:flex items-center gap-4 text-sm font-medium">
+        <nav className="hidden sm:flex items-center gap-3 text-sm font-medium">
           {navItems.map((item) => (
             <button
               key={item.id}

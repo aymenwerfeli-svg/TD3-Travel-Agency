@@ -6,6 +6,7 @@ import Favoris from "./components/Favoris/Favoris";
 import Contact from "./components/Contact/Contact";
 import Reservation from "./components/Reservation/Reservation";
 import Footer from "./components/Footer/Footer";
+import Login from "./components/Login/Login";
 
 function App() {
   const [page, setPage] = useState("accueil");
@@ -63,6 +64,7 @@ function App() {
         )}
         {page === "contact" && <Contact />}
         {page === "reservation" && <Reservation />}
+        {page === "login" && <Login />}
       </main>
 
       <Footer />
