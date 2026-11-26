@@ -84,7 +84,7 @@ function Destination({
             onClick={handleToggleDetails}
             className={styles.btnDetails}
           >
-            {afficherDetails ? "Masquer les détails" : "Voir les détails"}
+            {afficherDetails ? "Masquer les détails" : "Découvrir"}
           </button>
 
           {/* Activité 2 & 3 : Bouton favoris avec style actif/inactif */}

@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
-import Banner from "./components/Banner/Banner";
+import Accueil from "./components/Accueil/Accueil";
 import Destinations from "./components/Destinations/Destinations";
-import Favoris from "./components/Favoris/Favoris";
+import Apropos from "./components/Apropos/Apropos";
 import Contact from "./components/Contact/Contact";
 import Reservation from "./components/Reservation/Reservation";
+import Login from "./components/login/login";
 import Footer from "./components/Footer/Footer";
-import Login from "./components/Login/Login";
 
 function App() {
-  const [page, setPage] = useState("accueil");
   const [wishlist, setWishlist] = useState<number[]>(() => {
     try {
       return JSON.parse(localStorage.getItem("wishlist") || "[]");
@@ -17,16 +17,6 @@ function App() {
       return [];
     }
   });
-  const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem("darkMode") === "true" ||
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
-  });
-
-  // Persist dark mode
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", darkMode);
-    localStorage.setItem("darkMode", String(darkMode));
-  }, [darkMode]);
 
   // Persist wishlist
   useEffect(() => {
@@ -40,35 +30,35 @@ function App() {
   };
 
   return (
-    <div className="max-w-xl mx-auto min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 shadow-2xl">
-      <Header
-        page={page}
-        setPage={setPage}
-        darkMode={darkMode}
-        toggleDark={() => setDarkMode(!darkMode)}
-        wishlistCount={wishlist.length}
-      />
+    <BrowserRouter>
+      <div className="min-h-screen flex flex-col bg-gray-50 text-gray-800">
+        {/* Partie 3 : Conserver le composant Header afin que le menu reste visible */}
+        <Header />
 
-      <main className="flex-1">
-        {page === "accueil" && (
-          <>
-            <Banner setPage={setPage} />
-            <Destinations wishlist={wishlist} onToggleFav={toggleFav} setPage={setPage} />
-          </>
-        )}
-        {page === "destinations" && (
-          <Destinations wishlist={wishlist} onToggleFav={toggleFav} setPage={setPage} />
-        )}
-        {page === "favoris" && (
-          <Favoris wishlist={wishlist} onToggleFav={toggleFav} setPage={setPage} />
-        )}
-        {page === "contact" && <Contact />}
-        {page === "reservation" && <Reservation />}
-        {page === "login" && <Login />}
-      </main>
+        <main className="flex-1">
+          {/* Partie 3 & Partie 6 : Déclarer les routes à l'intérieur de Routes */}
+          <Routes>
+            <Route path="/" element={<Accueil />} />
+            <Route
+              path="/destinations"
+              element={
+                <Destinations
+                  wishlist={wishlist}
+                  onToggleFav={toggleFav}
+                  setPage={() => {}}
+                />
+              }
+            />
+            <Route path="/apropos" element={<Apropos />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/reservation" element={<Reservation />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 

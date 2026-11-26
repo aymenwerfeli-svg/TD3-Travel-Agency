@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Reservation.module.css';
 import { destinations } from '../../data/destinations';
 
@@ -132,6 +133,22 @@ function Reservation() {
   return (
     <div className={styles.container}>
       <h2>✈️ Formulaire de Réservation</h2>
+
+      <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+        <p style={{ color: '#64748b', fontSize: '14px' }}>
+          Déjà un compte ?{' '}
+          <Link
+            to="/login"
+            style={{
+              color: '#0fb9b1',
+              fontWeight: 'bold',
+              textDecoration: 'underline',
+            }}
+          >
+            Se connecter
+          </Link>
+        </p>
+      </div>
 
       <form onSubmit={handleSubmit} noValidate>
 

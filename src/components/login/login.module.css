@@ -1,0 +1,101 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background: #f8fafc;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 32px 28px;
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
+  }
+  
+  .title {
+    margin: 0 0 6px;
+    font-size: 1.6rem;
+    color: #17405c;
+  }
+  
+  .subtitle {
+    margin: 0 0 24px;
+    color: #64748b;
+    font-size: 0.95rem;
+  }
+  
+  .label {
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1e293b;
+  }
+  
+  .input {
+    margin-bottom: 18px;
+    padding: 12px 14px;
+    font-size: 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #0f172a;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  
+  .input:focus {
+    outline: none;
+    border-color: #0284c7;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.2);
+  }
+  
+  .button {
+    margin-top: 4px;
+    padding: 13px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: #ea580c;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .button:hover {
+    background: #c2410c;
+  }
+  
+  .button:focus-visible {
+    outline: 3px solid rgba(234, 88, 12, 0.4);
+    outline-offset: 2px;
+  }
+  
+  .inputError {
+    border-color: #dc2626;
+  }
+  
+  .inputError:focus {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+  }
+  
+  .fieldError {
+    margin: -12px 0 16px;
+    font-size: 0.85rem;
+    color: #b91c1c;
+  }
+  
+  .success {
+    margin: 0 0 18px;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    color: #166534;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+  }
